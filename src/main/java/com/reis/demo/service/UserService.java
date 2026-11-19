@@ -1,5 +1,6 @@
 package com.reis.demo.service;
 
+import com.reis.demo.dto.request.UserLoginRequest;
 import com.reis.demo.dto.request.UserRequest;
 import com.reis.demo.dto.response.UserResponse;
 import com.reis.demo.entities.User;
@@ -19,12 +20,17 @@ public class UserService {
     }
 
     public UserResponse cadastrar(@Valid UserRequest user){
-        String email =  user.getEmail();
+
         String nome = user.getName();
         String senha = user.getPassword();
-        User usuario = new User(nome, email, senha);
+        String email =  user.getEmail();
+
+        User usuario = new User(nome, senha, email);
         User usuarioCreate = repository.save(usuario);
         return new UserResponse(usuarioCreate);
+
+    }
+    public UserResponse login (@Valid UserLoginRequest user){
 
     }
 }

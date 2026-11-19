@@ -17,7 +17,8 @@ public class UserResponse {
     }
 
     public UserResponse(User user) {
-       this.email = user.getEmail();
+        this.id = user.getId();
+        this.email = user.getEmail();
     }
 
 }
